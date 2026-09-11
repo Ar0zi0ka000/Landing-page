@@ -1,11 +1,15 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import Projects from '@/components/Projects';
+import Technologies from '@/components/Technologies';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0d1117] text-white flex flex-col">
+    <main className="min-h-screen flex flex-col transition-colors duration-300">
       <Navbar />
       <Hero />
+      <Projects />
+      <Technologies />
     </main>
   );
 }

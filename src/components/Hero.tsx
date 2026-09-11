@@ -4,18 +4,18 @@ import Image from 'next/image';
 
 const carouselSlides = [
   {
-    title: "Desarrollo Web Full-Stack",
-    subtitle: "Arquitecturas robustas, seguras y de alto rendimiento comercial",
+    title: "Arquitectura Full-Stack Avanzada",
+    subtitle: "Construimos cimientos tecnológicos robustos y de alto rendimiento. Desarrollamos backend y frontend con código limpio, patrones de diseño sólidos y altos estándares de seguridad, garantizando sistemas escalables que soportan el crecimiento continuo de tu negocio sin comprometer la velocidad ni la estabilidad operativa.",
     image: "/web-dev.webp",
   },
   {
-    title: "Diseño y Aplicaciones Móviles",
-    subtitle: "Interfaces intuitivas centradas en la experiencia de usuario",
+    title: "Experiencia de Usuario (UI/UX) y Desarrollo Móvil",
+    subtitle: "Diseñamos interfaces intuitivas, atractivas y altamente funcionales adaptadas a cualquier dispositivo. Nos enfocamos en ofrecer una experiencia de navegación fluida, centrada en el usuario final, para maximizar el engagement, retener clientes y potenciar la presencia digital de tu marca en el ecosistema mobile.",
     image: "/mobile-design.png",
   },
   {
-    title: "Automatización & Bases de Datos",
-    subtitle: "Pipelines ETL avanzados y optimización de flujos operativos",
+    title: "Automatización y Gestión de Datos Inteligente",
+    subtitle: "Optimizamos la eficiencia operativa de tu empresa mediante la automatización de flujos de trabajo complejos, integración de APIs avanzadas y el procesamiento inteligente de bases de datos. Transformamos información dispersa en tableros analíticos claros para facilitar la toma de decisiones estratégicas.",
     image: "/automation.jpg",
   }
 ];
@@ -31,40 +31,31 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="quien-soy" className="w-full max-w-7xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center justify-between gap-12">
-      {/* Columna Izquierda: Texto Corporativo y Ampliado */}
-      <div className="flex flex-col items-start gap-6 max-w-2xl">
+    <section id="quien-soy" className="w-full max-w-[1400px] mx-auto px-6 py-16 md:py-24 flex flex-col lg:flex-row items-center justify-between gap-12 transition-colors">
+      {/* Columna Izquierda: Texto Corporativo */}
+      <div className="flex flex-col items-start gap-6 max-w-xl lg:w-1/2">
         
-        {/* Insignia (Sin sombra, solo borde en movimiento) */}
         <div className="p-[2px] rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 animate-border-glow">
           <span className="block text-cyan-300 font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full bg-gray-950">
             INGENIERÍA EN INFORMÁTICA • NEXUSOFT
           </span>
         </div>
 
-        <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
           Soluciones Tecnológicas de Vanguardia con <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
             NexuSoft
           </span>
         </h1>
-        <p className="text-gray-300 text-base md:text-lg leading-relaxed text-justify">
-          En <strong className="text-cyan-400">NexuSoft</strong> transformamos 
-          desafíos complejos en ecosistemas digitales escalables y seguros. 
-          Liderado por nuestro equipo de ingeniería, nos especializamos en el 
-          desarrollo web y móvil de alto rendimiento, la automatización inteligente 
-          de procesos y la gestión avanzada de bases de datos. Diseñamos 
-          arquitectura de software orientada a optimizar operaciones, blindar la 
-          ciberestructura y potenciar de forma directa el crecimiento estratégico de 
-          su empresa o proyecto individual.
+        <p className="text-base md:text-lg leading-relaxed text-justify font-normal opacity-95">
+          En <strong className="text-cyan-400">NexuSoft</strong> transformamos desafíos complejos en ecosistemas digitales escalables y seguros. Liderado por nuestro equipo de ingeniería, nos especializamos en el desarrollo web y móvil de alto rendimiento, la automatización inteligente de procesos y la gestión avanzada de bases de datos. Diseñamos arquitectura de software orientada a optimizar operaciones, blindar la ciberestructura y potenciar de forma directa el crecimiento estratégico de su empresa o proyecto individual.
         </p>
 
-        {/* Botones (Sin sombras, solo bordes eléctricos en movimiento) */}
         <div className="flex items-center gap-4 pt-2">
           <div className="p-[2px] rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 animate-border-glow">
             <a
               href="#contacto"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-[10px] bg-cyan-400 text-gray-950 font-bold hover:bg-cyan-300 transition-all"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-[10px] bg-cyan-400 text-gray-950 font-bold hover:bg-cyan-300 transition-all shadow-md"
             >
               Contáctame
             </a>
@@ -73,7 +64,7 @@ export default function Hero() {
           <div className="p-[2px] rounded-xl bg-gradient-to-r from-cyan-500/50 via-blue-500/50 to-cyan-500/50 animate-border-glow">
             <a
               href="#proyectos"
-              className="inline-flex items-center justify-center px-6 py-3.5 rounded-[10px] bg-gray-900 text-white font-medium hover:bg-gray-800 transition-all"
+              className="inline-flex items-center justify-center px-6 py-3.5 rounded-[10px] bg-gray-900 text-white font-medium hover:bg-gray-800 transition-all shadow-sm"
             >
               Ver Proyectos
             </a>
@@ -82,11 +73,11 @@ export default function Hero() {
 
       </div>
 
-      {/* Columna Derecha: Imagen del Carrusel (Sin sombra, solo borde en movimiento) */}
-      <div className="w-full md:w-[560px] flex flex-col items-center gap-5">
+      {/* Columna Derecha: Imagen del Carrusel */}
+      <div className="w-full lg:w-[55%] flex flex-col items-center gap-5">
         
-        <div className="w-full p-[3px] rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-600 to-cyan-400 animate-border-glow">
-          <div className="relative w-full h-[300px] md:h-[360px] rounded-[14px] overflow-hidden bg-gray-950">
+        <div className="w-full p-[3px] rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-600 to-cyan-400 animate-border-glow shadow-lg">
+          <div className="relative w-full h-[360px] md:h-[460px] rounded-[14px] overflow-hidden bg-gray-950">
             <Image 
               src={carouselSlides[currentIndex].image} 
               alt={carouselSlides[currentIndex].title}
@@ -98,10 +89,10 @@ export default function Hero() {
 
         {/* Textos Informativos del Slide Actual */}
         <div className="flex flex-col items-center text-center gap-1.5 transition-all duration-500">
-          <h3 className="text-white font-bold text-xl">
+          <h3 className="font-bold text-xl md:text-2xl">
             {carouselSlides[currentIndex].title}
           </h3>
-          <p className="text-gray-400 text-sm max-w-lg">
+          <p className="text-sm md:text-base max-w-xl opacity-85">
             {carouselSlides[currentIndex].subtitle}
           </p>
         </div>

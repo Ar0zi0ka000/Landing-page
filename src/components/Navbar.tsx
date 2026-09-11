@@ -4,19 +4,20 @@ import { Sun, Moon } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Navbar() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [isLight, setIsLight] = useState(false);
 
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
+    const root = document.documentElement;
+    if (isLight) {
+      root.classList.add('light');
     } else {
-      document.documentElement.classList.remove('dark');
+      root.classList.remove('light');
     }
-  }, [darkMode]);
+  }, [isLight]);
 
   return (
-    <header className="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between border-b border-gray-800/50">
-      {/* Logotipo Real e Identidad de Marca */}
+    <header className="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between border-b border-gray-800/50 dark:border-gray-800/50 transition-colors">
+      {/* Logotipo e Identidad de Marca */}
       <a href="#" className="flex items-center gap-3 group">
         <div className="relative w-11 h-11 overflow-hidden rounded-xl border border-cyan-500/30 bg-gray-900/50 p-0.5 shadow-lg shadow-cyan-500/10 transition-transform group-hover:scale-105">
           <Image 
@@ -28,25 +29,25 @@ export default function Navbar() {
         </div>
         <span className="font-extrabold text-xl tracking-wide flex">
           <span className="text-cyan-400">Nexu</span>
-          <span className="text-white">Soft</span>
+          <span className={isLight ? "text-gray-900" : "text-white"}>Soft</span>
         </span>
       </a>
 
       {/* Enlaces de Navegación Interna */}
-      <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+      <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
         <a href="#quien-soy" className="hover:text-cyan-400 transition-colors">Sobre nosotros</a>
         <a href="#proyectos" className="hover:text-cyan-400 transition-colors">Proyectos</a>
         <a href="#lenguajes" className="hover:text-cyan-400 transition-colors">Lenguajes</a>
         <a href="#contacto" className="hover:text-cyan-400 transition-colors">Contacto</a>
       </nav>
 
-      {/* Botón de Tema (Claro / Oscuro) */}
+      {/* Botón de Tema */}
       <button
-        onClick={() => setDarkMode(!darkMode)}
+        onClick={() => setIsLight(!isLight)}
         className="p-2.5 rounded-xl bg-gray-800/80 text-cyan-400 hover:bg-gray-700 transition-all border border-gray-700 shadow-md cursor-pointer"
         aria-label="Cambiar tema"
       >
-        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+        {isLight ? <Moon size={20} /> : <Sun size={20} />}
       </button>
     </header>
   );
