@@ -1,10 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Navbar() {
-  // Inicializamos leyendo de forma segura el localStorage (o true por defecto)
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme');
@@ -54,32 +52,53 @@ export default function Navbar() {
         <a href="#contacto" className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">Contacto</a>
       </nav>
 
-      {/* Botón Neumórfico Estilo Switch */}
+      {/* Botón de Cambio de Tema (Estilo Inspirado en la Referencia) */}
       <button
         onClick={toggleTheme}
         aria-label="Cambiar tema claro u oscuro"
-        className={`relative w-24 h-12 rounded-full p-1.5 transition-all duration-300 cursor-pointer flex items-center shadow-inner ${
+        className={`relative w-28 h-14 rounded-full p-1.5 transition-all duration-500 cursor-pointer flex items-center shadow-inner overflow-hidden ${
           isDarkMode 
-            ? 'bg-[#0f172a] border border-gray-800 shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)]' 
-            : 'bg-[#e2e8f0] border border-gray-300 shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]'
+            ? 'bg-gradient-to-r from-[#172033] via-[#1e293b] to-[#0f172a] border border-slate-700/60 shadow-[inset_0_3px_6px_rgba(0,0,0,0.8)]' 
+            : 'bg-gradient-to-r from-sky-300 via-sky-400 to-amber-200 border border-sky-200 shadow-[inset_0_3px_6px_rgba(0,0,0,0.2)]'
         }`}
       >
-        {/* Iconos de fondo (Sol a la izquierda, Luna a la derecha) */}
-        <div className="absolute inset-0 flex justify-between items-center px-3 pointer-events-none">
-          <Sun className={`w-5 h-5 transition-opacity duration-300 ${isDarkMode ? 'text-gray-500 opacity-40' : 'text-amber-500 opacity-100'}`} size={20} />
-          <Moon className={`w-5 h-5 transition-opacity duration-300 ${isDarkMode ? 'text-cyan-400 opacity-100' : 'text-gray-400 opacity-40'}`} size={20} />
+        {/* Fondo Detallado: Estrellas (Modo Oscuro) / Nubes (Modo Claro) */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Estrellas y destellos del modo nocturno */}
+          <div className={`absolute inset-0 transition-opacity duration-500 ${isDarkMode ? 'opacity-100' : 'opacity-0'}`}>
+            <span className="absolute top-2 left-3 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_6px_white] animate-pulse"></span>
+            <span className="absolute bottom-3 left-7 w-1 h-1 bg-slate-300 rounded-full"></span>
+            <span className="absolute top-4 left-12 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_4px_white]"></span>
+            <span className="absolute bottom-4 left-16 w-1 h-1 bg-slate-200 rounded-full"></span>
+          </div>
+
+          {/* Nubes difuminadas del modo diurno */}
+          <div className={`absolute inset-0 transition-opacity duration-500 ${isDarkMode ? 'opacity-0' : 'opacity-100'}`}>
+            <div className="absolute top-2 right-4 w-7 h-3.5 bg-white/70 rounded-full blur-[0.5px]"></div>
+            <div className="absolute top-4 right-7 w-9 h-4 bg-white/85 rounded-full blur-[0.5px]"></div>
+          </div>
         </div>
 
-        {/* Círculo deslizante con relieve 3D */}
+        {/* Círculo Deslizante: Sol con Halos (Claro) o Luna con Cráteres (Oscuro) */}
         <div
-          className={`relative z-10 w-9 h-9 rounded-full bg-white dark:bg-gray-900 shadow-[0_4px_6px_rgba(0,0,0,0.2),0_2px_4px_rgba(0,0,0,0.1)] transform transition-transform duration-300 ease-in-out flex items-center justify-center ${
-            isDarkMode ? 'translate-x-12' : 'translate-x-0'
+          className={`relative z-10 w-11 h-11 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.3)] transform transition-transform duration-500 ease-in-out flex items-center justify-center ${
+            isDarkMode 
+              ? 'translate-x-14 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400' 
+              : 'translate-x-0 bg-gradient-to-br from-yellow-200 via-yellow-300 to-amber-400'
           }`}
         >
-          {isDarkMode ? (
-            <Moon className="w-4 h-4 text-cyan-400" size={16} />
-          ) : (
-            <Sun className="w-4 h-4 text-amber-500" size={16} />
+          {/* Halos de luz concéntricos simulados para el Sol */}
+          {!isDarkMode && (
+            <div className="absolute -inset-1 rounded-full bg-yellow-300/30 blur-sm pointer-events-none -z-10"></div>
+          )}
+
+          {/* Cráteres internos detallados para la Luna */}
+          {isDarkMode && (
+            <div className="relative w-full h-full rounded-full overflow-hidden">
+              <div className="absolute top-2.5 left-3 w-2 h-2 bg-slate-400/50 rounded-full"></div>
+              <div className="absolute bottom-3 right-3 w-3 h-3 bg-slate-400/50 rounded-full"></div>
+              <div className="absolute top-5 right-3.5 w-1.5 h-1.5 bg-slate-400/50 rounded-full"></div>
+            </div>
           )}
         </div>
       </button>

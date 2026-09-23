@@ -2,15 +2,24 @@
 import Image from 'next/image';
 import { FaWhatsapp, FaInstagram, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import { ArrowUp } from 'lucide-react'; // Importamos la flecha moderna
 
 export default function Footer() {
   const whatsappNumber = "+56932505243";
   const whatsappMessage = encodeURIComponent("¡Hola Maxi! Vi tu portafolio en NexuSoft y me gustaría conversar sobre un proyecto.");
   
   const instagramUrl = "https://instagram.com/ar0zi0ka.000";
-  const twitterUrl = "https://twitter.com/Ar0Zi0";
+  const twitterUrl = "https://twitter.com/arzi000ka";
   const githubUrl = "https://github.com/AR0ZI0KA000";
-  const myEmail = "Maximiliano000.andres@gmail.com";
+  const myEmail = "maximiliano000.andres@gmail.com";
+
+  // Función para volver arriba con desplazamiento suave
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <footer className="w-full bg-slate-50 dark:bg-[#080b0f] border-t border-gray-200 dark:border-gray-800/50 pt-16 pb-8 transition-colors">
@@ -119,22 +128,33 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Columna 4: Dirección */}
-        <div className="flex flex-col gap-4">
-          <h4 className="text-gray-900 dark:text-white font-semibold text-sm tracking-wider uppercase">Ubicación</h4>
-          <div className="flex flex-col text-sm text-gray-600 dark:text-gray-400">
-            <span>Colina de Chile</span>
-            <span>Región Metropolitana</span>
+        {/* Columna 4: Dirección y Botón Volver Arriba */}
+        <div className="flex flex-col justify-between gap-4">
+          <div className="flex flex-col gap-4">
+            <h4 className="text-gray-900 dark:text-white font-semibold text-sm tracking-wider uppercase">Ubicación</h4>
+            <div className="flex flex-col text-sm text-gray-600 dark:text-gray-400">
+              <span>Colina de Chile</span>
+              <span>Región Metropolitana</span>
+            </div>
           </div>
+
+          {/* Botón de Volver Arriba */}
+          <button
+            onClick={scrollToTop}
+            className="flex items-center gap-2 text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors w-fit group cursor-pointer pt-2"
+          >
+            <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center transition-transform group-hover:-translate-y-1 shadow-sm">
+              <ArrowUp size={16} />
+            </div>
+            <span>Volver al inicio</span>
+          </button>
         </div>
 
       </div>
 
       {/* Copyright e Información Inferior */}
       <div className="max-w-[1400px] mx-auto px-6 pt-8 flex flex-col items-center justify-center text-xs text-gray-500 dark:text-gray-500 gap-3 text-center">
-        <p>© 2026 NexuSoft. Todos los derechos reservados.</p>
-        <div className="flex gap-6">
-        </div>
+        <p>© 2026 Todos los derechos reservados.</p>
       </div>
     </footer>
   );

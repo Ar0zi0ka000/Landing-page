@@ -7,14 +7,8 @@ import {
   SiTailwindcss, 
   SiTypescript, 
   SiFastapi, 
-  SiPostgresql, 
   SiPython, 
-  SiGoogleanalytics, 
-  SiTensorflow, 
-  SiJavascript, 
-  SiNodedotjs, 
-  SiMongodb,
-  SiSqlite
+  SiTensorflow 
 } from 'react-icons/si';
 
 const techIcons: { [key: string]: any } = {
@@ -23,39 +17,23 @@ const techIcons: { [key: string]: any } = {
   "TypeScript": <SiTypescript className="text-blue-600 dark:text-blue-500" size={16} />,
   "React": <SiReact className="text-cyan-600 dark:text-cyan-400" size={16} />,
   "FastAPI": <SiFastapi className="text-teal-600 dark:text-teal-400" size={16} />,
-  "PostgreSQL": <SiPostgresql className="text-blue-600 dark:text-blue-400" size={16} />,
   "Python": <SiPython className="text-yellow-600 dark:text-yellow-400" size={16} />,
-  "Power BI": <SiGoogleanalytics className="text-amber-600 dark:text-amber-500" size={16} />,
-  "TensorFlow": <SiTensorflow className="text-orange-600 dark:text-orange-400" size={16} />,
-  "JavaScript": <SiJavascript className="text-yellow-600 dark:text-yellow-300" size={16} />,
-  "Node.js": <SiNodedotjs className="text-emerald-600 dark:text-emerald-400" size={16} />,
-  "MongoDB": <SiMongodb className="text-emerald-600 dark:text-emerald-500" size={16} />,
-  "SQL": <SiSqlite className="text-blue-600 dark:text-blue-300" size={16} />
+  "TensorFlow": <SiTensorflow className="text-orange-600 dark:text-orange-400" size={16} />
 };
 
 const projectsData = [
   {
     id: 1,
-    title: "Portafolio Web Full-Stack",
+    title: "Landing Page",
     status: "Terminado",
     statusGradient: "from-emerald-400 via-teal-300 to-emerald-500 text-emerald-700 dark:text-emerald-300",
     borderGradient: "from-emerald-400 via-cyan-500 to-emerald-400",
     description: "Plataforma web de alta performance desarrollada con arquitectura moderna basada en componentes. Incorpora un sistema dinámico de temas claro/oscuro sincronizados a nivel de documento, carruseles interactivos optimizados, efectos de bordes eléctricos fluidos mediante animaciones CSS personalizadas y un diseño completamente responsive adaptado a los más altos estándares UI/UX del desarrollo web actual.",
-    image: "/web-dev.webp",
+    image: "/landing-page1.png",
     stack: ["Next.js", "Tailwind CSS", "TypeScript", "React"]
   },
   {
     id: 2,
-    title: "Pipeline ETL & Dashboard",
-    status: "Terminado",
-    statusGradient: "from-emerald-400 via-teal-300 to-emerald-500 text-emerald-700 dark:text-emerald-300",
-    borderGradient: "from-emerald-400 via-cyan-500 to-emerald-400",
-    description: "Sistema robusto de extracción, transformación y carga (ETL) diseñado para procesar grandes volúmenes de datos transaccionales. Incluye limpieza automatizada de registros, consultas estructuradas de alta velocidad y un panel de control interactivo en tiempo real que traduce métricas complejas en gráficos dinámicos para facilitar la toma de decisiones gerenciales.",
-    image: "/automation.jpg",
-    stack: ["Python", "SQL", "Power BI"]
-  },
-  {
-    id: 3,
     title: "Asistente de Voz con IA",
     status: "En desarrollo",
     statusGradient: "from-amber-400 via-yellow-300 to-orange-400 text-amber-700 dark:text-amber-300",
@@ -63,16 +41,6 @@ const projectsData = [
     description: "Aplicación de inteligencia artificial orientada al procesamiento de lenguaje natural y reconocimiento de comandos de voz locales. Desarrollada con arquitecturas de modelos de aprendizaje profundo, garantiza una baja latencia en la transcripción de audio, privacidad de datos mediante procesamiento offline y una API escalable de backend para integraciones futuras.",
     image: "/mobile-design.png",
     stack: ["Python", "TensorFlow", "FastAPI"]
-  },
-  {
-    id: 4,
-    title: "Gestión de Inventarios",
-    status: "En desarrollo",
-    statusGradient: "from-amber-400 via-yellow-300 to-orange-400 text-amber-700 dark:text-amber-300",
-    borderGradient: "from-amber-400 via-cyan-500 to-amber-400",
-    description: "Plataforma web integral para el control de stock y trazabilidad de productos en tiempo real. Cuenta con un sistema automatizado de alertas por stock crítico, control de accesos por roles de usuario, registro detallado de entradas y salidas de almacén, y una base de datos NoSQL altamente flexible para manejar catálogos de gran envergadura.",
-    image: "/web-dev.webp",
-    stack: ["JavaScript", "Node.js", "MongoDB"]
   }
 ];
 
